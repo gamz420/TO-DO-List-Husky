@@ -1,0 +1,17 @@
+{
+  "name": "to-do-list-husky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "test": "node scripts/precommit-checks.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}

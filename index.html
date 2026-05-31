@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO Husky</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div>
+          <h1>TO DO Husky</h1>
+        </div>
+
+        <div class="header-actions">
+          <button
+            id="clearCompletedBtn"
+            class="btn btn-ghost"
+            type="button"
+            disabled
+          >
+            Удалить выполненные
+          </button>
+        </div>
+      </header>
+
+      <main class="card">
+        <form id="addForm" class="row">
+          <input
+            id="taskInput"
+            class="input"
+            placeholder="Новая задача…"
+            maxlength="140"
+            autocomplete="off"
+          />
+          <button class="btn" type="submit">Добавить</button>
+        </form>
+
+        <section class="toolbar">
+          <input id="searchInput" class="input" placeholder="Поиск…" />
+          <div class="chips">
+            <span class="chip" id="totalChip">Всего: 0</span>
+            <span class="chip" id="doneChip">Готово: 0</span>
+          </div>
+        </section>
+
+        <ul id="list" class="list"></ul>
+
+        <template id="taskTemplate">
+          <li class="item" data-id="">
+            <div class="item-main">
+              <button
+                class="check"
+                type="button"
+                data-action="toggle"
+                title="Готово / не готово"
+              ></button>
+
+              <div class="content">
+                <div class="title-row">
+                  <span class="title" data-role="title"></span>
+                  <span class="muted small" data-role="meta"></span>
+                </div>
+
+                <div class="edit-row hidden" data-role="editRow">
+                  <input class="input" data-role="editInput" maxlength="140" />
+                  <button class="btn" type="button" data-action="save">
+                    Сохранить
+                  </button>
+                  <button
+                    class="btn btn-ghost"
+                    type="button"
+                    data-action="cancel"
+                  >
+                    Отмена
+                  </button>
+                </div>
+
+                <div class="attachments" data-role="attachments"></div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-ghost" type="button" data-action="edit">
+                Редактировать
+              </button>
+              <button class="btn btn-ghost" type="button" data-action="attach">
+                Загрузить файлы
+              </button>
+              <button class="btn btn-danger" type="button" data-action="delete">
+                Удалить
+              </button>
+              <input
+                class="hidden"
+                type="file"
+                multiple
+                data-role="fileInput"
+              />
+            </div>
+          </li>
+        </template>
+      </main>
+
+      <footer class="footer muted">
+        Подсказка: прикреплённые файлы сохраняются в IndexedDB (то есть остаются
+        после перезагрузки).
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
